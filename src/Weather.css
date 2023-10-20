@@ -1,0 +1,97 @@
+.icon {
+    position: absolute;
+    left: 200px;
+    top: 110px;
+}
+
+.icon img {
+    position: absolute;
+    top: -20px;
+}
+
+.temp {
+    font-size: 50px;
+    position: absolute;
+    left: 200px;
+    top: 22px;
+}
+
+.tempUnit {
+    font-size: 22px;
+    position: absolute;
+    left: 250px;
+    top: 35px;
+}
+
+.celcius {
+    font-size: 20px;
+    position: absolute;
+    left: 270px;
+    top: 35px;
+}
+
+
+.info {
+    font-size: 18px;
+    position: absolute;
+    left: 900px;
+    top: 185px;
+}
+
+.city {
+    position: absolute;
+    left: 250px;
+    top: 250px;
+
+}
+
+.time {
+    position: absolute;
+    left: 250px;
+    top: 295px;
+}
+
+
+.search-bar .search-input {
+    height: 30px;
+    width: 500px;
+    background: #f9f7fe;
+    border: none;
+    border-radius: 6px;
+    color: rgba(39, 33, 66, .4);
+    display: inline-block;
+    font-size: 16px;
+    line-height: 20px;
+    padding: 20px 20px;
+}
+
+.search-form {
+
+    position: absolute;
+    top: 40px;
+    left: 250px;
+    display: flex;
+
+    font-size: 16px;
+}
+
+.btn {
+    position: absolute;
+    left: 800px;
+    top: 38px;
+    height: 40px;
+    width: 100px;
+    color: black;
+    border: solid rgb(102, 103, 95) 1px;
+    background-color: rgba(94, 105, 92, 0.562);
+}
+
+.Weather .container {
+    border: 1px solid lightblue;
+    background-color: rgba(212, 203, 192, 0.85);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 500px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px 1px lightgrey;
+}

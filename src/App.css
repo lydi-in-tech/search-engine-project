@@ -1,1 +1,17 @@
+footer {
+    color: black;
+    font-size: 15px;
+    line-height: 18px;
+    margin-top: 40px;
+    position: absolute;
+    top: 548px;
+    left: 250px;
+    text-align: center;
+}
 
+body {
+    margin: 0;
+    padding: 0;
+    padding-left: 200px;
+    padding-right: 180px;
+}
