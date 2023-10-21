@@ -1,12 +1,53 @@
-import React from "react"
+import React, {useState} from "react"
+import axios from "axios"
 import "./Weather.css"
 
-export default function Weather() {
+export default function Weather(props) {
+    const [city, setCity]=useState(props.defaultCity)
+
+    const [weatherData, setWeatherData] = useState({ ready: false })
+    
+    function handleResponse(response) {
+        setWeatherData({
+      ready:true,
+      temperature: response.data.main.temp,
+    description:response.data.weather[0].description,
+    humidity: response.data.main.humidity,
+      windspeed: response.data.wind.speed,
+      date: new Date(response.data.dt * 1000),
+      iconUrl: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`, 
+    city: response.data.name
+   })
+        
+    }
+
+    function search() {
+          const apiKey = "bf54175800a55e59e6c4d6461deeef12"
+      
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`
+        axios.get(apiUrl).then(handleResponse)
+
+    }
+
+    function handleSubmit(event) {
+    event.preventDefault()
+    search()
+
+    }
+    
+     function handleCityChange(event) {
+    setCity(event.target.value)
+
+  }
+   
+
+    if (weatherData.ready) {
+        
     return (
         <div className="Weather">
         <div class="container">
   <div class="search-bar">
-    <form  id="search-form"> 
+    <form  id="search-form" onSubmit={handleSubmit}> 
       <div class="row">
         <div class="search-bar">
           <div class="col-9 search-form">
@@ -14,7 +55,8 @@ export default function Weather() {
             autofocus="on"
             autocomplete="off"
             class="form-control search-input"
-            id="city-input"
+                                        id="city-input"
+                                        onChange={handleCityChange}
             />
           </div>
           <div class="col-3 p-0">
@@ -25,17 +67,17 @@ export default function Weather() {
     </form>
   </div>
 
-  <div class="icon" ><img src="http://openweathermap.org/img/wn/50d@2x.png" width="200" height="200" alt="clear" id="icon"/> 
+  <div class="icon" ><img src={weatherData.iconUrl} width="200" height="200" alt="clear" id="icon"/> 
     <div class="temp" id="temp">21</div>
     <span id="celcius" class="celcius">
       <strong id="temperature"></strong>
-      <a href="#" id="celsius-link">°C</a>|<a href="#" id="fahrenheit-link">°F</a>
+      <a href="/" id="celsius-link">°C</a>|<a href="/" id="fahrenheit-link">°F</a>
     </span>
-  </div> 
+                </div> 
+                
+                <h1 className="city">{weatherData.city}</h1>
 
-<h1>
-  <div id="city" class="city">New York</div>
-</h1>
+
 
 
   <div class="time" id="time">15:00 Friday</div>
@@ -44,15 +86,22 @@ export default function Weather() {
 
                 
                 <div className="info">
-                <div className="description text-capitalize">rainy</div>
-                <div className="humidity" >Humidity: %</div>
-                <div className="windSpeed" >Wind: km/h</div> 
+                <div className="description text-capitalize">{weatherData.description}</div>
+                <div className="humidity" >Humidity: {weatherData.humidity}%</div>
+                <div className="windSpeed" >Wind: {Math.round(weatherData.windspeed)}km/h</div> 
             </div>
 
             </div>
             </div>
-
-
-
     )
+    } else {
+        search()
+        
+        return "Loading.."
+    }
+
+
+
+
+    
 }
