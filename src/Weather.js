@@ -70,10 +70,12 @@ export default function Weather(props) {
         </div>
       </div>
                     </form>
-                    <WeatherForecast />
+                    
   </div>
 
- <div>
+                <div>
+                    <WeatherForecast />
+                    </div>
                  
 
                     <div className="icon" >
@@ -104,9 +106,10 @@ export default function Weather(props) {
                 <div className="windSpeed" >Wind: {Math.round(weatherData.windspeed)}km/h</div> 
             </div>
 
+                </div>
+               
             </div>
-            </div>
-            </div>
+            
     )
     } else {
         search()
