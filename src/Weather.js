@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import FormattedDate from "./FormattedDate";
+import WeatherIcon from "./WeatherIcon";
 import WeatherTemperature from "./WeatherTemperature";
 import WeatherForecast from "./WeatherForecast";
 
@@ -19,7 +20,7 @@ export default function Weather(props) {
     humidity: response.data.main.humidity,
       windspeed: response.data.wind.speed,
       date: new Date(response.data.dt * 1000),
-      iconUrl: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`, 
+      iconUrl: response.data.weather[0].icon,
     city: response.data.name
    })
         
@@ -75,8 +76,10 @@ export default function Weather(props) {
  <div>
                  
 
-          <div className="icon" ><img src={weatherData.iconUrl} width="200" height="200" alt="clear" /> 
-         
+                    <div className="icon" >
+                        <div className="showIcon">
+                            <WeatherIcon code={weatherData.iconUrl} size={110} />
+                            </div>
             
               <WeatherTemperature celsius={weatherData.temperature} />
               
