@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import FormattedDate from "./FormattedDate"
+
 import axios from "axios"
 import "./Weather.css"
 
@@ -68,7 +69,11 @@ export default function Weather(props) {
     </form>
   </div>
 
-  <div class="icon" ><img src={weatherData.iconUrl} width="200" height="200" alt="clear" id="icon"/> 
+ <div>
+                 
+                    <div className="icon" ><img src={weatherData.iconUrl} width="200" height="200" alt="clear" /> 
+                
+                
     <div class="temp" id="temp">21</div>
     <span id="celcius" class="celcius">
       <strong id="temperature"></strong>
@@ -94,6 +99,7 @@ export default function Weather(props) {
                 <div className="windSpeed" >Wind: {Math.round(weatherData.windspeed)}km/h</div> 
             </div>
 
+            </div>
             </div>
             </div>
     )
