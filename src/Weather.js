@@ -1,5 +1,5 @@
 import React, { useState } from "react"
-import FormattedDate from "./FormattedDate"
+import FormattedDate from "./FormattedDate";
 import WeatherTemperature from "./WeatherTemperature";
 import axios from "axios"
 import "./Weather.css"
