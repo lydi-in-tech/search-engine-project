@@ -1,3 +1,5 @@
+
+
 .icon {
     position: absolute;
     left: 200px;
@@ -20,13 +22,6 @@
     font-size: 22px;
     position: absolute;
     left: 250px;
-    top: 35px;
-}
-
-.celcius {
-    font-size: 20px;
-    position: absolute;
-    left: 270px;
     top: 35px;
 }
 

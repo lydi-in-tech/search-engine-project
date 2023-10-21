@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import FormattedDate from "./FormattedDate"
-
+import WeatherTemperature from "./WeatherTemperature";
 import axios from "axios"
 import "./Weather.css"
 
@@ -71,16 +71,15 @@ export default function Weather(props) {
 
  <div>
                  
-                    <div className="icon" ><img src={weatherData.iconUrl} width="200" height="200" alt="clear" /> 
-                
-                
-    <div class="temp" id="temp">21</div>
-    <span id="celcius" class="celcius">
-      <strong id="temperature"></strong>
-      <a href="/" id="celsius-link">°C</a>|<a href="/" id="fahrenheit-link">°F</a>
-    </span>
-                </div> 
-                
+
+          <div className="icon" ><img src={weatherData.iconUrl} width="200" height="200" alt="clear" /> 
+            
+            
+              <WeatherTemperature celsius={weatherData.temperature} />
+              
+                </div>
+            
+            
                 <h1 className="city">{weatherData.city}</h1>
 
 
