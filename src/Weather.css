@@ -10,8 +10,6 @@
     top: 110px;
 }
 
-
-
 .temp {
     font-size: 50px;
     position: absolute;
@@ -27,7 +25,6 @@
     
 }
 
-
 .info {
     font-size: 18px;
     position: absolute;
@@ -39,7 +36,6 @@
     position: absolute;
     left: 280px;
     top: 250px;
-
 }
 
 .time {
@@ -47,7 +43,6 @@
     left: 280px;
     top: 295px;
 }
-
 
 .search-bar .search-input {
     height: 30px;
