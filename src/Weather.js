@@ -13,7 +13,7 @@ export default function Weather(props) {
     const [weatherData, setWeatherData] = useState({ ready: false })
     
     function handleResponse(response) {
-        console.log(response.data)
+       console.log(response.data.coord)
         setWeatherData({
       ready:true,
       temperature: response.data.main.temp,
@@ -82,7 +82,7 @@ export default function Weather(props) {
 
                     <div className="icon" >
                         <div className="showIcon">
-                            <WeatherIcon code={weatherData.iconUrl} size={110} />
+                             <WeatherIcon code={weatherData.iconUrl} size={110} />
                             </div>
             
               <WeatherTemperature celsius={weatherData.temperature} />

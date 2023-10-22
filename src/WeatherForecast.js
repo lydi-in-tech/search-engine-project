@@ -1,46 +1,44 @@
-import React from "react"
+import React, { useState } from "react"
 import axios from "axios"
 import "./WeatherForecast.css"
-import WeatherIcon from "./WeatherIcon"
+import WeatherForecastDay from "./WeatherForecastDay"
+
 export default function WeatherForecast(props) {
-
+  let [loaded, setLoaded] = useState(false)
+  let [forecast, setForecast] = useState(null)
+  
     function displayForecast(response) {
-        console.log(response.data)
-
+      setForecast(response.data.daily)
+      setLoaded(true)
     }
    
-  let apiKey2 = "4c9b53e4f8f5eb00df5915bdca340605";
-  let lat = props.coordinates.lat;
-  let lon = props.coordinates.lon;
-  let apiUrl1 = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey2}&units=metric`;
-  axios.get(apiUrl1).then(displayForecast);
 
-
+    if (loaded) {
+        
     return (
         
             <div className="weather-forecast">
   <div className="row">
-    <div className="col">
-      <div className="weather-forecast-date">Thur</div>
-      <div className="weather-icon">
-                        < WeatherIcon code="01d" size={ 60} />
-      </div>
+          <div className="col">
+            <WeatherForecastDay data={forecast[0]} />
       
-      <div className="weather-forecast-temperatures">
-        <span className="weather-forecast-temperature-max">
-          18° 
-        </span>
-        /
-        <span className="weather-forecast-temperatue-min">12° </span>
-      </div>
                 </div>
                 
                 </div>
         
             </div>
-            
-            
-            
-            
     )
+        
+    } else {
+        let apiKey2 = "667d9f573c8af4c33457be5d561a9148";
+  let lat = props.coordinates.lat;
+  let lon = props.coordinates.lon;
+  let apiUrl1 = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey2}&units=metric`;
+        axios.get(apiUrl1).then(displayForecast);
+        
+      return null;
+        
+    }
+
+
 }
