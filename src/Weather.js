@@ -85,7 +85,7 @@ export default function Weather(props) {
                              <WeatherIcon code={weatherData.iconUrl} size={110} />
                             </div>
             
-              <WeatherTemperature celsius={weatherData.temperature} />
+               <WeatherTemperature celsius={weatherData.temperature} />
               
                 </div>
             
